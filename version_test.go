@@ -68,3 +68,39 @@ func TestVersion_Equal_Equals(t *testing.T) {
 
 	assert.True(t, version1.Equal(version2))
 }
+
+func TestVersion_BumpPatchVersion(t *testing.T) {
+	version, err := NewVersion(1, 4, 2)
+
+	assert.NoError(t, err)
+
+	version.BumpPatchVersion()
+
+	assert.Equal(t, 1, version.Major)
+	assert.Equal(t, 4, version.Minor)
+	assert.Equal(t, 3, version.Patch)
+}
+
+func TestVersion_BumpMinorVersion(t *testing.T) {
+	version, err := NewVersion(1, 4, 2)
+
+	assert.NoError(t, err)
+
+	version.BumpMinorVersion()
+
+	assert.Equal(t, 1, version.Major)
+	assert.Equal(t, 5, version.Minor)
+	assert.Equal(t, 0, version.Patch)
+}
+
+func TestVersion_BumpMajorVersion(t *testing.T) {
+	version, err := NewVersion(1, 4, 2)
+
+	assert.NoError(t, err)
+
+	version.BumpMajorVersion()
+
+	assert.Equal(t, 2, version.Major)
+	assert.Equal(t, 0, version.Minor)
+	assert.Equal(t, 0, version.Patch)
+}

@@ -31,3 +31,18 @@ func (v *Version) String() string {
 func (v *Version) Equal(other *Version) bool {
 	return v.Major == other.Major && v.Minor == other.Minor && v.Patch == other.Patch
 }
+
+func (v *Version) BumpPatchVersion() {
+	v.Patch++
+}
+
+func (v *Version) BumpMinorVersion() {
+	v.Patch = 0
+	v.Minor++
+}
+
+func (v *Version) BumpMajorVersion() {
+	v.Patch = 0
+	v.Minor = 0
+	v.Major++
+}
