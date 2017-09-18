@@ -19,5 +19,5 @@ func (v *Version) String() string {
 }
 
 func (v *Version) Equal(other *Version) bool {
-	return false
+	return v.Major == other.Major && v.Minor == other.Minor && v.Patch == other.Patch
 }
