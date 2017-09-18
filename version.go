@@ -10,8 +10,18 @@ type Version struct {
 	Patch int
 }
 
-func NewVersion(major int, minor int, patch int) *Version {
-	return &Version{Major: major, Minor: minor, Patch: patch}
+func NewVersion(major int, minor int, patch int) (*Version, error) {
+	if major < 0 {
+		return nil, fmt.Errorf("Expected majar >= 0, but major is %d", major)
+	}
+	if minor < 0 {
+		return nil, fmt.Errorf("Expected minor >= 0, but minor is %d", minor)
+	}
+	if patch < 0 {
+		return nil, fmt.Errorf("Expected patch >= 0, but patch is %d", patch)
+	}
+
+	return &Version{Major: major, Minor: minor, Patch: patch}, nil
 }
 
 func (v *Version) String() string {
