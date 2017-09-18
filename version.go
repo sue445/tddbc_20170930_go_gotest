@@ -10,8 +10,8 @@ type Version struct {
 	Patch int
 }
 
-func NewVersion(major int, minor int, patch int) *Version {
-	return &Version{Major: major, Minor: minor, Patch: patch}
+func NewVersion(major int, minor int, patch int) (*Version, error) {
+	return &Version{Major: major, Minor: minor, Patch: patch}, nil
 }
 
 func (v *Version) String() string {
