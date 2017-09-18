@@ -40,3 +40,6 @@ func (v *Version) BumpMinorVersion() {
 	v.Patch = 0
 	v.Minor++
 }
+
+func (v *Version) BumpMajorVersion() {
+}
