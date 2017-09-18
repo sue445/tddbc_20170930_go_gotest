@@ -80,3 +80,15 @@ func TestVersion_BumpPatchVersion(t *testing.T) {
 	assert.Equal(t, 4, version.Minor)
 	assert.Equal(t, 3, version.Patch)
 }
+
+func TestVersion_BumpMinorVersion(t *testing.T) {
+	version, err := NewVersion(1, 4, 2)
+
+	assert.NoError(t, err)
+
+	version.BumpMinorVersion()
+
+	assert.Equal(t, 1, version.Major)
+	assert.Equal(t, 5, version.Minor)
+	assert.Equal(t, 0, version.Patch)
+}

@@ -35,3 +35,6 @@ func (v *Version) Equal(other *Version) bool {
 func (v *Version) BumpPatchVersion() {
 	v.Patch++
 }
+
+func (v *Version) BumpMinorVersion() {
+}
