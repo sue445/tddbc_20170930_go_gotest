@@ -9,3 +9,7 @@ type Version struct {
 func NewVersion(major int, minor int, patch int) *Version {
 	return &Version{Major: major, Minor: minor, Patch: patch}
 }
+
+func (v *Version) String() string {
+	return ""
+}
