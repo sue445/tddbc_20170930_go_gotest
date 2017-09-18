@@ -7,5 +7,5 @@ type Version struct {
 }
 
 func NewVersion(major int, minor int, patch int) *Version {
-	return nil
+	return &Version{Major: major, Minor: minor, Patch: patch}
 }
