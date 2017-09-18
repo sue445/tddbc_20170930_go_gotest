@@ -1,5 +1,9 @@
 package tddbc
 
+import (
+	"fmt"
+)
+
 type Version struct {
 	Major int
 	Minor int
@@ -11,5 +15,5 @@ func NewVersion(major int, minor int, patch int) *Version {
 }
 
 func (v *Version) String() string {
-	return ""
+	return fmt.Sprintf("%d.%d.%d", v.Major, v.Minor, v.Patch)
 }
