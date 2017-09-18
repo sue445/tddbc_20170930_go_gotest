@@ -42,4 +42,7 @@ func (v *Version) BumpMinorVersion() {
 }
 
 func (v *Version) BumpMajorVersion() {
+	v.Patch = 0
+	v.Minor = 0
+	v.Major++
 }
